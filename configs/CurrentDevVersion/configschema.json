@@ -1,0 +1,564 @@
+{
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "_comment": {
+      "type": "string",
+      "optional": "true"
+    },
+    "pageStrategy": {
+      "type": "string",
+      "enum": [
+        "html5",
+        "hbbtv",
+        "html5hbbtvhybrid",
+        "htmlbroadcastvideo",
+        "samsungmaple",
+        "playstation3",
+        "html5hbbtvhybridappshow",
+        "uwp",
+        "temporarytactical"
+      ]
+    },
+    "modules": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "base": {
+          "type": "string",
+          "enum": [
+            "antie/devices/browserdevice",
+            "antie/devices/ps3",
+            "antie/devices/ps3base",
+            "antie/devices/wiiu"
+          ]
+        },
+        "modifiers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "antie/devices/anim/noanim",
+              "antie/devices/anim/css3",
+              "antie/devices/anim/css3transform",
+              "antie/devices/broadcastsource/hbbtvsource",
+              "antie/devices/broadcastsource/samsungtvsource",
+              "antie/devices/broadcastsource/tizentvsource",
+              "antie/devices/broadcastsource/stubbedsource",
+              "antie/devices/data/nativejson",
+              "antie/devices/data/json2",
+              "antie/devices/logging/onscreen",
+              "antie/devices/logging/default",
+              "antie/devices/logging/consumelog",
+              "antie/devices/logging/xhr",
+              "antie/devices/logging/jstestdriver",
+              "antie/devices/logging/alert",
+              "antie/devices/storage/cookie",
+              "antie/devices/anim/styletopleft",
+              "antie/devices/exit/history",
+              "antie/devices/exit/tivo",
+              "antie/devices/exit/closewindow",
+              "antie/devices/exit/samsung_maple",
+              "antie/devices/exit/samsung_tizen",
+              "antie/devices/exit/destroyapplication",
+              "antie/devices/exit/openclosewindow",
+              "antie/devices/exit/netcast",
+              "antie/devices/exit/sagemcom",
+              "antie/devices/exit/broadcast/netcast",
+              "antie/devices/exit/broadcast/samsung_maple",
+              "antie/devices/exit/samsung_tizen",
+              "antie/devices/parentalguidance/appdefaultpghandler",
+              "antie/devices/parentalguidance/youviewpghandler",
+              "antie/devices/mediaplayer/cehtml",
+              "antie/devices/mediaplayer/cehtmlseekfinishedemitevent",
+              "antie/devices/mediaplayer/html5",
+              "antie/devices/mediaplayer/html5seekfinishedemitevent",
+              "antie/devices/mediaplayer/html5memoryleakunfix",
+              "antie/devices/mediaplayer/samsung_maple",
+              "antie/devices/mediaplayer/live/none",
+              "antie/devices/mediaplayer/live/playable",
+              "antie/devices/mediaplayer/live/restartable",
+              "antie/devices/mediaplayer/live/seekable",
+              "xboxone/devices/storage/xboxpls",
+              "antie/devices/mediaplayer/html5untyped"
+            ],
+            "type": "string"
+          }
+        }
+      }
+    },
+    "displayQuality": {
+        "optional" : "true",
+        "type" : "string",
+        "enum" : [
+            "high"
+        ]
+    },
+    "statReporters" : {
+      "optional" : "true",
+      "type" : "array",
+      "items" : {
+        "enum": [
+          "tvpjslib/stats/avreporters/youviewreporter"
+        ],
+        "type": "string"
+      }
+    },
+    "logging": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "none"
+          ]
+        }
+      }
+    },
+    "streaming": {
+      "type": "object",
+      "properties": {
+        "video": {
+          "type": "object",
+          "properties": {
+            "mediaURIFormat": {
+              "type": "string",
+              "enum": [
+                "%href%"
+              ]
+            },
+            "supported": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "protocols": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "http",
+                        "https"
+                      ]
+                    }
+                  },
+                  "encodings": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "h264"
+                      ]
+                    }
+                  },
+                  "transferFormat": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "dash",
+                        "hls",
+                        "plain"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "maximumBitRate": {
+                    "type": "number",
+                    "optional": "true",
+                    "enum": [
+                      3600,
+                      2800
+                    ]
+                  },
+                  "maximumVideoLines": {
+                    "type": "number",
+                    "optional": "true",
+                    "enum": [
+                      1080
+                    ]
+                  },
+                  "blacklistSuppliers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audio": {
+          "type": "object",
+          "properties": {
+            "mediaURIFormat": {
+              "type": "string",
+              "enum": [
+                "%href%"
+              ]
+            },
+            "supported": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "protocols": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "http"
+                      ]
+                    }
+                  },
+                  "encodings": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "aac"
+                      ]
+                    }
+                  },
+                  "transferFormat": {
+                    "type": "array",
+                    "items": {
+                      "enum": [
+                        "dash",
+                        "hls",
+                        "plain"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "blacklistSuppliers": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "overrides": {
+        "additionalProperties": false,
+        "type": "object",
+        "optional": "true",
+        "properties": {
+          "forceBeginPlaybackToEndOfWindow": {
+            "type": "boolean",
+            "optional": "true"
+          }
+        }
+      }
+    },
+    "input": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "map": {
+          "type": "object",
+          "properties": {
+            "keycode": {
+              "type": "string",
+              "optional": "true"
+            }
+          }
+        }
+      }
+    },
+    "accessibility": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "captions": {
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "supported": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "application/ttaf+xml"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "layouts": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "width": {
+            "type": "number",
+            "enum": [
+              720,
+              1920,
+              1280,
+              960
+            ]
+          },
+          "height": {
+            "type": "number",
+            "enum": [
+              1080,
+              720,
+              540
+            ]
+          },
+          "module": {
+            "type": "string",
+            "enum": [
+              "%application%/appui/layouts/540p",
+              "%application%/appui/layouts/720p",
+              "%application%/appui/layouts/1080p"
+            ]
+          },
+          "classes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "browserdevice540p",
+                "browserdevice720p",
+                "browserdevice1080p",
+                "samsung",
+                "ps3"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "defaults": {
+      "optional": "true",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "showElementFade": {
+          "optional": "true",
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "fps": {
+              "type": "number",
+              "optional": "true"
+            },
+            "duration": {
+              "type": "number",
+              "optional": "true"
+            },
+            "easing": {
+              "type": "string",
+              "optional": "true",
+              "enum": [
+                "linear",
+                "easeInQuad",
+                "easeOutQuad",
+                "easeInOutQuad",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic",
+                "easeInQuart",
+                "easeOutQuart",
+                "easeInOutQuart",
+                "easeInQuint",
+                "easeOutQuint",
+                "easeInOutQuint",
+                "easeInSine",
+                "easeOutSine",
+                "easeInOutSine",
+                "easeInExpo",
+                "easeOutExpo",
+                "easeInOutExpo",
+                "easeInCirc",
+                "easeOutCirc",
+                "easeInOutCirc",
+                "easeOutBounce",
+                "easeInBack",
+                "easeOutBack",
+                "easeInOutBack",
+                "elastic",
+                "swingFromTo",
+                "swingFrom",
+                "swingTo",
+                "bounce",
+                "bouncePast",
+                "easeFromTo",
+                "easeFrom",
+                "easeTo"
+              ]
+            }
+          }
+        },
+        "hideElementFade": {
+          "optional": "true",
+          "additionalProperties": false,
+          "type": "object",
+          "properties": {
+            "fps": {
+              "type": "number",
+              "optional": "true"
+            },
+            "duration": {
+              "type": "number",
+              "optional": "true"
+            },
+            "easing": {
+              "type": "string",
+              "optional": "true",
+              "enum": [
+                "linear",
+                "easeInQuad",
+                "easeOutQuad",
+                "easeInOutQuad",
+                "easeInCubic",
+                "easeOutCubic",
+                "easeInOutCubic",
+                "easeInQuart",
+                "easeOutQuart",
+                "easeInOutQuart",
+                "easeInQuint",
+                "easeOutQuint",
+                "easeInOutQuint",
+                "easeInSine",
+                "easeOutSine",
+                "easeInOutSine",
+                "easeInExpo",
+                "easeOutExpo",
+                "easeInOutExpo",
+                "easeInCirc",
+                "easeOutCirc",
+                "easeInOutCirc",
+                "easeOutBounce",
+                "easeInBack",
+                "easeOutBack",
+                "easeInOutBack",
+                "elastic",
+                "swingFromTo",
+                "swingFrom",
+                "swingTo",
+                "bounce",
+                "bouncePast",
+                "easeFromTo",
+                "easeFrom",
+                "easeTo"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "networking": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "supportsJSONP": {
+          "type": "boolean"
+        },
+        "supportsCORS": {
+          "type": "boolean",
+          "optional": "true"
+        }
+      }
+    },
+    "broadcast": {
+      "additionalProperties": false,
+      "type": "object",
+      "optional": "true",
+      "properties": {
+        "disableLaunch": {
+          "type": "boolean",
+          "optional": "true"
+        },
+        "aitProfile": {
+          "type": "string",
+          "optional": "true",
+          "enum": [
+            "default",
+            "dtg_local",
+            "hbbtv_15",
+            "hbbtv_20",
+            "youview"
+          ]
+        },
+        "currentChannelValidation": {
+          "additionalProperties": false,
+          "type": "object",
+          "optional": "true",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "interval": {
+                "type": "number",
+                "optional": "true"
+            }
+          }
+        }
+      }
+    },
+    "restartTimeout": {
+      "type": "number",
+      "optional": "true"
+    },
+    "statLabels": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": true,
+      "properties": {
+        "deviceType": {
+          "type": "string",
+          "optional": "true",
+          "enum": [
+            "smarttv",
+            "bd",
+            "stb",
+            "streamer",
+            "console"
+           ]
+        },
+        "serviceType": {
+          "type": "string",
+          "optional": "true",
+          "enum": [
+            "retail",
+            "managed_service",
+            "other",
+            "youview"
+          ]
+        },
+        "osType": {
+          "type": "string",
+          "optional": "true"
+        },
+        "browserType": {
+          "type": "string",
+          "optional": "true"
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string",
+        "optional": "true",
+        "enum": [
+          "uhd",
+          "dial_capable",
+          "longVodAssetsUnsupported",
+          "alphaImages"
+        ]
+      }
+    }
+  }
+}

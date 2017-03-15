@@ -1,0 +1,31 @@
+{
+  "author": {
+    "name": "BBC TV & Mobile Platforms"
+  },
+  "bugs": {
+    "url": "https://github.com/bbc/tal-device-configs-generic/issues"
+  },
+  "dependencies": {},
+  "description": "TAL device configs (generic)",
+  "files": [
+    "configs/CurrentDevVersion/example-example-precert.json",
+    "configs/CurrentDevVersion/example-example-default.json",
+    "configs/CurrentDevVersion/configschema.json",
+    "build/build-configs.sh"
+  ],
+  "homepage": "https://github.com/bbc/tal-device-configs-generic",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "name": "tal-device-configs",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbc/tal-device-configs-generic.git"
+  },
+  "scripts": {
+    "build": "./build/build-configs.sh && npm test",
+    "install": "./build/build-configs.sh",
+    "test": "./node_modules/grunt-cli/bin/grunt verify"
+  },
+  "version": "1.0.2"
+}
